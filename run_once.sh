@@ -34,7 +34,7 @@ if [ $TARGET_CONTAINER_STARTUP == false ]; then
 fi
 
 sleep 15
-DOCKER_CONTAINERS_RUNNING=`docker ps | awk '{print $2}' | grep -v ID | grep -v run_with_others | grep -v ecs-agent |  grep -v $TARGET_CONTAINER_IMAGE`
+DOCKER_CONTAINERS_RUNNING=`docker ps | awk '{print $2}' | grep -v ID | grep -v run_once | grep -v ecs-agent |  grep -v $TARGET_CONTAINER_IMAGE`
 
 while [[ ! -z $DOCKER_CONTAINERS_RUNNING ]]
 do
@@ -44,5 +44,5 @@ do
   fi
 
   sleep 15
-  DOCKER_CONTAINERS_RUNNING=`docker ps | awk '{print $2}' | grep -v ID | grep -v run_with_others | grep -v ecs-agent | grep -v $TARGET_CONTAINER_IMAGE`
+  DOCKER_CONTAINERS_RUNNING=`docker ps | awk '{print $2}' | grep -v ID | grep -v run_once | grep -v ecs-agent | grep -v $TARGET_CONTAINER_IMAGE`
 done
