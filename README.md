@@ -10,7 +10,7 @@ Pass the image name and the startup command of the conatiner you'd like to start
             -v $(which docker | awk '{print $NF}'):/bin/docker  \
             -it \
             run_once:latest \
-            bash run_with_others.sh -i nginx:latest -s 'docker run -d nginx:latest'
+            bash run_once.sh -i nginx:latest -s 'docker run -d nginx:latest'
 
 ```
 
